@@ -1,6 +1,6 @@
 # File:        speedTicket.py
 # Author:      Andrew Huber
-# Date:        October 5, 2016
+# Date:        October 26, 2016
 # Section:     03
 # E-mail:      ahuber1@umbc.edu
 # Description: YOUR DESCRIPTION GOES HERE AND HERE
@@ -8,6 +8,20 @@
 # Collaboration: During lab, collaboration between students is allowed,
 #                although I understand I still must understand the material
 #                and complete the assignment myself.
+
+# --------------------------------------------------------------------------------#
+# ----------------------------------- NEW CODE -----------------------------------#
+# --------------------------------------------------------------------------------#
+
+def isInt(aString):
+	for character in aString:
+		if not character.isdigit():
+			return False
+	return True
+
+# --------------------------------------------------------------------------------#
+# ----------------------------------- NEW CODE -----------------------------------#
+# --------------------------------------------------------------------------------#
 
 def main():
 
@@ -18,22 +32,34 @@ def main():
 	# Get speed limit
 	valid = False
 
+	# Create and initialize variables
+	speedLimit = ""
+	drivingSpeed = ""
+
 	while not valid:
-		speedLimit = int(input("What is the speed limit in MPH? "))
-		if speedLimit < 0:
+		speedLimit = input("What is the speed limit in MPH (integers only)? ")
+		if not isInt(speedLimit) or int(speedLimit) < 0 :
 			print("Invalid input.")
 		else:
 			valid = True
+
+	print() # adds blank line to make it easier to read
 
 	valid = False
 
 	# Get driving speed
 	while not valid:
-		drivingSpeed = int(input("What is the driving speed in MPH? "))
-		if speedLimit < 0:
+		drivingSpeed = input("What is the driving speed in MPH (integers only)? ")
+		if not isInt(drivingSpeed) or int(drivingSpeed) < 0:
 			print("Invalid input.")
 		else:
 			valid = True
+
+	print() # adds blank line to make it easier to read
+
+	# Convert speedLimit and drivingSpeed to ints
+	speedLimit = int(speedLimit)
+	drivingSpeed = int(drivingSpeed)
 
 	# --------------------------------------------------------------------------------#
 	# ----------------------------------- NEW CODE -----------------------------------#
